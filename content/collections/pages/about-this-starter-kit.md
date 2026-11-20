@@ -6,7 +6,11 @@ content:
 - type: paragraph
   content:
   - type: text
-    text: Makr Starter is a minimal Statamic starter kit for personal and professional blogs. It started as a modernised take on the aero.zeppelin kit. It keeps that kit's calm, writing-first layout and rebuilds everything underneath.
+    text: Makr Starter is a minimal Statamic starter kit that is perfect for personal and professional blogs. It started as a modernised take on the aero.zeppelin kit (The one I chose when I started building with statamic). It keeps that kit's calm, writing-first layout and rebuilds everything underneath for a fresh and modern feel.
+- type: paragraph
+  content:
+  -type: text
+  text: This kit uses my cutome CSS framework called makr.css, an easily customizable design framework I created to use on my freelance web design work. The framework was created so I could quickly set up each project and get right into my favorite part of the job, crafting a beautiful and unique deisign that captured each clients' brand and feel. If you want to know more about makr.css you can check out [the repo here](https://github.com/embeeML/makr.css)
 - type: heading
   attrs:
     level: 2
