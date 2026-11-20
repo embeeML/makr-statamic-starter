@@ -211,18 +211,4 @@ content:
     text: IconScout Unicons
   - type: text
     text: .
-  - type: hardBreak
-  - type: text
-    text: 'Photos from '
-  - type: text
-    marks:
-    - type: link
-      attrs:
-        href: https://unsplash.com
-        rel: null
-        target: null
-        title: null
-    text: Unsplash
-  - type: text
-    text: .
 ---
