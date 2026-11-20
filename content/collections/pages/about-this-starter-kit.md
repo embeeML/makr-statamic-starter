@@ -24,6 +24,12 @@ content:
     - type: paragraph
       content:
       - type: text
+        text: Minimalistic and professional design
+  - type: list_item
+    content:
+    - type: paragraph
+      content:
+      - type: text
         text: Statamic 6 blueprints (tabs and sections) and the new globals storage.
   - type: list_item
     content:
@@ -34,13 +40,13 @@ content:
         - type: bold
         text: makr.css
       - type: text
-        text: ' for layout, type and components, with no Tailwind and no utility purging.'
+        text: ' for layout, type and components'
   - type: list_item
     content:
     - type: paragraph
       content:
       - type: text
-        text: Light, dark and auto themes, plus an optional MBM preset.
+        text: Light, dark and auto themes, plus an optional MBM preset (my own design ques).
   - type: list_item
     content:
     - type: paragraph
@@ -76,7 +82,7 @@ content:
     - type: paragraph
       content:
       - type: text
-        text: Vite build with Alpine.js. highlight.js loads only on pages that contain code.
+        text: Vite build with Alpine.js. And highlight.js only loads on pages that contain code.
 - type: heading
   attrs:
     level: 2
@@ -165,7 +171,10 @@ content:
         title: null
     text: aero.zeppelin
   - type: text
-    text: ' by Andreas Schantl. Built with '
+    text: ' by Andreas Schantl.'
+  - type: hardBreak
+  - type: text
+    text: 'Built with '
   - type: text
     marks:
     - type: link
@@ -176,7 +185,10 @@ content:
         title: null
     text: makr.css
   - type: text
-    text: ' by Matthew Boyles Media. Icons by '
+    text: ' by Matthew Boyles Media.'
+  - type: hardBreak
+  - type: text
+    text: 'Icons by '
   - type: text
     marks:
     - type: link
@@ -198,7 +210,10 @@ content:
         title: null
     text: IconScout Unicons
   - type: text
-    text: '. Photos from '
+    text: .
+  - type: hardBreak
+  - type: text
+    text: 'Photos from '
   - type: text
     marks:
     - type: link
