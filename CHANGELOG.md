@@ -1,6 +1,6 @@
 # Changelog
 
-## [0.1.2-alpha] - 11/19/2026
+## [0.2.0-alpha] - 11/19/2026
 
 Tweaks and improvements
 
@@ -8,6 +8,7 @@ Tweaks and improvements
 
 - Improved layout of all post-list components
 - Added customizable divider to list components
+- Added new icon + text logo for light and dark themes
 
 ## [0.1.0-alpha] - 10/31/2026
 
