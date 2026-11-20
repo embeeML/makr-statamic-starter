@@ -1,10 +1,10 @@
 {
-    "name": "embeemedialab/makr-statamic-starter",
+    "name": "embeeml/makr-statamic-starter",
     "description": "A minimal Statamic 6 blog starter kit built on makr.css.",
     "license": "MIT",
     "extra": {
         "statamic": {
-            "name": "Makr Starter",
+            "name": "makr starter kit",
             "description": "A minimal, fast Statamic 6 starter kit for blogs and small publications, built on makr.css with Font Awesome / IconScout icons and modern social sharing."
         }
     }
