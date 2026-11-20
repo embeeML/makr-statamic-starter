@@ -1,6 +1,15 @@
 # Changelog
 
-## [1.0.0] - 10/31/2026
+## [0.1.2-alpha] - 11/19/2026
+
+Tweaks and improvements
+
+### Changes
+
+- Improved layout of all post-list components
+- Added customizable divider to list components
+
+## [0.1.0-alpha] - 10/31/2026
 
 Initial Build. It's Halloween.
 

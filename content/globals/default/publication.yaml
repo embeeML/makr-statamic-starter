@@ -1,7 +1,7 @@
-name: 'Makr Starter'
+name: 'makr starter'
 description: 'A minimal Statamic blog built on makr.css. Write things, share them everywhere.'
-logo: makr-logo.svg
-logo_dark: makr-logo-dark.svg
+logo: mbm-ico.svg
+logo_dark: mbm-ico-dark.svg
 default_theme: auto
 theme_toggle: true
 icon_set: fa
