@@ -1,7 +1,7 @@
 /**
  * Cycles the theme: auto → light → dark → auto.
  * Sets data-theme on <html> (makr.css themes) and remembers the choice.
- * The inline script in layout.antlers.html applies it before first paint.
+ * The inline script in layout.antlers.html applies it before first paint
  */
 const KEY = 'makr-theme';
 const ORDER = ['auto', 'light', 'dark'];

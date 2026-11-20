@@ -1,5 +1,5 @@
 /**
- * Makr Starter — site JavaScript
+ * makr starter — site JavaScript
  * Alpine.js for small interactions, makr.js for tabs/accordions,
  * highlight.js only on pages that have code blocks.
  */

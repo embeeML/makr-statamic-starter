@@ -1,13 +1,11 @@
 # makr statamic starter kit
 
-A minimal starter kit for Statamic 6 and higher for personal and professional blogs built on **makr.css**
-
-the makr starter kit is an inspired rebuild of the [aero.zepplin] (https://github.com/ivymayhem/aero-zeppelin) starter kit. Makr retains the calm, writing first layout (the very reason I purchased the original kit in 2022) but everything underneath is new.
+A sleek and minimalistic, writing first starter kit for personal and professional blogs, built with makr.css 
 
 ## Features
 
 - **Statamic 6**: tabbed blueprints, the new globals storage, Bard set groups.
-- **makr.css** instead of Tailwind: one layered stylesheet with tokens, fluid type, a grid and components. You don't need to configure purging or learn utility classes.
+- **makr.css** a layered stylesheet with tokens, fluid type, a grid and components. You don't need to configure or learn utility classes.
 - **Light / dark / auto themes**, with a visitor toggle that remembers the choice and applies it before the page paints.
 - **Font Awesome or IconScout Unicons** icons. Choose the set in the control panel. Icons are inlined SVGs through one partial.
 - **Social profiles** for Bluesky, Threads, Mastodon, X, Instagram, Facebook, LinkedIn, YouTube, TikTok, Pinterest, GitHub, CodePen, Dribbble, Behance, Discord, Twitch, Reddit, Medium, Spotify, Vimeo, Telegram, WhatsApp, Snapchat, email and RSS. Each profile can add Fediverse `rel="me"` verification.
@@ -108,7 +106,7 @@ Control panel → **Globals → Publication**: name, description, logos (light a
 
 ## Credits & licenses
 
-- Layout inspired by aero.zeppelin by Andreas Schantl.
+- Layout inspired by [aero.zeppelin](https://github.com/ivymayhem/aero-zeppelin) from Andreas Schantl.
 - [makr.css](https://github.com/embeeML/makr.css) by Matthew Boyles, MIT.
 - [Font Awesome Free](https://fontawesome.com/license/free) icons, CC BY 4.0 (attribution kept in each SVG).
 - [Unicons](https://iconscout.com/unicons) by IconScout, under the IconScout Simple License (the icons may not be redistributed as a standalone icon pack).

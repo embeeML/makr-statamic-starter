@@ -2,7 +2,7 @@
     SEO & social meta. Fallback chains:
       title        seo_title → title → site name
       description  seo_description → excerpt → intro → site description
-      image        og_image → featured_image → Globals › Publication › Default share image
+      image       og_image → featured_image → Globals › Publication › Default share image
 #}}
 {{ _sep = publication:title_separator ?? '|' }}
 {{ _title = seo_title ?? title ?? publication:name }}

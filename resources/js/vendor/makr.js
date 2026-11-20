@@ -16,7 +16,7 @@
         c.classList.toggle('active', c.id === btn.dataset.tab));
       return;
     }
-    // Accordion (old markup): .accordion-item > .accordion-heading + .accordion-content
+    // Accordion  (old markup): .accordion-item > .accordion-heading + .accordion-content
     const head = e.target.closest('.accordion-item:not(details) > .accordion-heading');
     if (head) {
       const item = head.parentElement;
