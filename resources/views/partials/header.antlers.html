@@ -1,0 +1,41 @@
+<header class="site-header" x-data="{ open: false }" @keydown.escape.window="open = false">
+    <div class="container site-header-inner">
+        <a href="{{ link to="/" }}" class="site-logo" rel="home">
+            {{ if publication:logo }}
+                <img class="logo-light" src="{{ publication:logo:url }}" alt="{{ publication:name }}" width="{{ publication:logo:width }}" height="{{ publication:logo:height }}">
+                {{ if publication:logo_dark }}
+                    <img class="logo-dark" src="{{ publication:logo_dark:url }}" alt="{{ publication:name }}" width="{{ publication:logo_dark:width }}" height="{{ publication:logo_dark:height }}">
+                {{ /if }}
+            {{ else }}
+                <span class="site-name">{{ publication:name }}</span>
+            {{ /if }}
+        </a>
+
+        <div class="site-header-actions">
+            <nav id="site-nav" class="site-nav" :class="{ 'is-open': open }" aria-label="Main">
+                <ul class="site-nav-list">
+                    {{ nav:top_nav select="title|url" }}
+                        <li>
+                            <a href="{{ url }}"{{ if is_current || is_parent }} aria-current="page"{{ /if }}>{{ title }}</a>
+                        </li>
+                    {{ /nav:top_nav }}
+                    {{ if publication:show_tags_navigation }}
+                        <li>
+                            <a href="{{ link to="tags" }}"{{ if segment_1 == 'tags' }} aria-current="page"{{ /if }}>Tags</a>
+                        </li>
+                    {{ /if }}
+                </ul>
+            </nav>
+
+            {{ if publication:theme_toggle }}
+                {{ partial:partials/theme-toggle }}
+            {{ /if }}
+
+            <button type="button" class="btn btn-ghost btn-icon nav-toggle" aria-controls="site-nav" :aria-expanded="open.toString()" aria-expanded="false" @click="open = ! open">
+                <span class="visually-hidden">Menu</span>
+                <span x-show="! open">{{ partial:partials/icon name="menu" }}</span>
+                <span x-show="open" x-cloak>{{ partial:partials/icon name="close" }}</span>
+            </button>
+        </div>
+    </div>
+</header>

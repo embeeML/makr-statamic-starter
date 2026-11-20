@@ -1,0 +1,24 @@
+{{# Image set — sizes: narrow | default | wide #}}
+{{ _size = width ?? 'default' }}
+{{ if image_source }}
+<figure class="figure figure-{{ _size }}">
+    {{ if image_source:extension == 'svg' || image_source:extension == 'gif' }}
+        <img src="{{ image_source:url }}" alt="{{ image_source:alt }}" loading="lazy" decoding="async">
+    {{ else }}
+        <img
+            src="{{ glide:image_source width="1280" fit="max" format="webp" }}"
+            srcset="{{ glide:image_source width="640" fit="max" format="webp" }} 640w,
+                    {{ glide:image_source width="960" fit="max" format="webp" }} 960w,
+                    {{ glide:image_source width="1280" fit="max" format="webp" }} 1280w{{ if _size == 'wide' }},
+                    {{ glide:image_source width="2000" fit="max" format="webp" }} 2000w{{ /if }}"
+            sizes="{{ if _size == 'wide' }}(min-width: 76rem) 72rem{{ elseif _size == 'narrow' }}(min-width: 38rem) 34rem{{ else }}(min-width: 52rem) 48rem{{ /if }}, 100vw"
+            alt="{{ image_source:alt }}"
+            width="{{ image_source:width }}" height="{{ image_source:height }}"
+            loading="lazy" decoding="async">
+    {{ /if }}
+
+    {{ if caption }}
+        <figcaption>{{ caption | nl2br }}</figcaption>
+    {{ /if }}
+</figure>
+{{ /if }}

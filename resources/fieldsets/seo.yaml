@@ -1,0 +1,31 @@
+title: SEO
+fields:
+  -
+    handle: seo_title
+    field:
+      type: text
+      display: 'Meta title'
+      instructions: 'Overrides the page title in search results and share cards.'
+      character_limit: 70
+  -
+    handle: seo_description
+    field:
+      type: textarea
+      display: 'Meta description'
+      instructions: 'Falls back to the excerpt, then the site description.'
+      character_limit: 160
+  -
+    handle: og_image
+    field:
+      type: assets
+      display: 'Share image'
+      container: assets
+      max_files: 1
+      instructions: '1200×630 works everywhere (Facebook, LinkedIn, X, Bluesky, Threads, Mastodon, Slack, iMessage). Falls back to the featured image, then the site default.'
+  -
+    handle: noindex
+    field:
+      type: toggle
+      display: 'Hide from search engines'
+      default: false
+      instructions: 'Adds noindex and removes this entry from the sitemap.'

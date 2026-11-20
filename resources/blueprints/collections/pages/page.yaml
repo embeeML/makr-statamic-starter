@@ -1,0 +1,89 @@
+title: Page
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: content
+            field:
+              type: bard
+              display: Content
+              container: assets
+              toolbar_mode: fixed
+              fullscreen: true
+              allow_source: true
+              remove_empty_nodes: trim
+              buttons:
+                - h2
+                - h3
+                - h4
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - quote
+                - anchor
+                - image
+                - table
+                - horizontalrule
+                - removeformat
+              sets:
+                media:
+                  display: Media
+                  sets:
+                    image:
+                      display: Image
+                      fields:
+                        -
+                          import: image
+                    video:
+                      display: Video
+                      fields:
+                        -
+                          import: video
+                    embed:
+                      display: 'Social Embed'
+                      fields:
+                        -
+                          import: embed
+  seo:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            import: seo
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+          -
+            handle: parent
+            field:
+              type: entries
+              collections:
+                - pages
+              max_items: 1
+              listable: false
+              localizable: true
+          -
+            handle: template
+            field:
+              type: template
+              display: Template
+              hide_partials: true

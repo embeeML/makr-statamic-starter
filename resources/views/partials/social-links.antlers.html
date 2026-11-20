@@ -1,0 +1,21 @@
+{{# Footer profile icons — Globals → Social → Profiles #}}
+<ul class="social-links" aria-label="Find {{ publication:name }} elsewhere">
+    {{ social:profiles }}
+        {{ if enabled && url }}
+            <li>
+                <a class="social-link" href="{{ url }}"{{ if platform:value != 'mail' }} target="_blank"{{ /if }} rel="noopener{{ if rel_me }} me{{ /if }}" title="{{ label ?? platform:label }}">
+                    {{ partial:partials/icon :name="platform:value" }}
+                    <span class="visually-hidden">{{ label ?? platform:label }}</span>
+                </a>
+            </li>
+        {{ /if }}
+    {{ /social:profiles }}
+    {{ if publication:show_feed_link }}
+        <li>
+            <a class="social-link" href="{{ link to="feed" }}" title="RSS feed">
+                {{ partial:partials/icon name="rss" }}
+                <span class="visually-hidden">RSS feed</span>
+            </a>
+        </li>
+    {{ /if }}
+</ul>

@@ -1,0 +1,25 @@
+{{#
+    Video set — privacy-friendly. Nothing loads from YouTube/Vimeo until
+    the visitor clicks play (youtube-nocookie.com / Vimeo dnt=1).
+#}}
+{{ if video_url | is_embeddable }}
+<figure class="figure figure-default video-embed" x-data="videoEmbed" data-src="{{ video_url | embed_url }}">
+    <div class="video-frame">
+        <template x-if="playing">
+            <iframe :src="src" title="{{ video_title ?? 'Embedded video' }}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>
+        </template>
+        <button type="button" class="video-play" x-show="! playing" @click="play()">
+            {{ if poster }}
+                <img src="{{ glide:poster width="1280" height="720" fit="crop_focal" format="webp" }}" alt="" loading="lazy" decoding="async">
+            {{ else }}
+                <img x-ref="thumb" alt="" loading="lazy" decoding="async" hidden>
+            {{ /if }}
+            <span class="video-play-icon">{{ partial:partials/icon name="play" }}</span>
+            <span class="visually-hidden">Play video{{ if video_title }}: {{ video_title }}{{ /if }}</span>
+        </button>
+    </div>
+    {{ if video_title }}
+        <figcaption>{{ video_title }}</figcaption>
+    {{ /if }}
+</figure>
+{{ /if }}

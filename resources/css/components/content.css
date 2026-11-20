@@ -1,0 +1,50 @@
+/* Long-form content (Bard output) — a centered reading column where
+   figures can break out to "wide" or tuck in to "narrow". */
+
+.post-content {
+  padding-inline: var(--container-padding);
+}
+
+.post-content > * {
+  max-width: var(--content-width);
+  margin-inline: auto;
+  margin-block: 0;
+}
+.post-content > * + * { margin-top: var(--flow-space); }
+.post-content > :is(h2, h3, h4) { margin-top: 1.75em; }
+.post-content > :is(h2, h3, h4) + * { margin-top: 0.5em; }
+
+.post-content a:not(.btn) { text-decoration-line: underline; }
+.post-content img { height: auto; border-radius: var(--radius-lg); }
+.post-content p > img { display: block; margin-inline: auto; }
+
+/* Figures (image / video / embed sets) */
+.post-content > .figure { margin-block: var(--space-8); }
+.post-content > .figure-wide { max-width: var(--content-wide); }
+.post-content > .figure-narrow { max-width: var(--content-narrow); }
+.figure img { display: block; width: 100%; }
+.figure figcaption { text-align: center; }
+
+/* Pull quote */
+.post-content > blockquote { margin-block: var(--space-8); }
+
+.post-content > hr {
+  max-width: min(60%, var(--content-width));
+  margin-block: var(--space-9);
+}
+
+/* Tables from Bard */
+.post-content > table {
+  display: block;
+  overflow-x: auto;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+}
+.post-content :is(th, td) {
+  padding: var(--space-2) var(--space-3);
+  border-bottom: var(--border-width) solid var(--color-border);
+  text-align: left;
+  vertical-align: top;
+}
+.post-content th { font-weight: var(--font-weight-semibold); border-bottom-color: var(--color-border-strong); }
+.post-content :is(th, td) p { margin: 0; }

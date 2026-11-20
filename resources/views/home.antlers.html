@@ -1,0 +1,23 @@
+<div class="container-narrow section">
+    {{ if publication:description }}
+        <header class="home-intro">
+            <p class="lead">{{ publication:description }}</p>
+        </header>
+    {{ /if }}
+
+    {{ collection:posts :paginate="publication:posts_per_page ?? 12" as="posts" sort="date:desc" }}
+        {{ if no_results }}
+            <p class="h3 text-center">No posts have been published yet.</p>
+        {{ /if }}
+
+        <div class="post-list">
+            {{ posts }}
+                {{ partial:partials/list-item }}
+            {{ /posts }}
+        </div>
+
+        {{ paginate }}
+            {{ partial:partials/pagination }}
+        {{ /paginate }}
+    {{ /collection:posts }}
+</div>

@@ -1,0 +1,25 @@
+title: Video
+fields:
+  -
+    handle: video_url
+    field:
+      type: video
+      display: 'Video URL'
+      instructions: 'YouTube or Vimeo link. Loads in privacy-enhanced mode, and only after the visitor clicks play.'
+      required: true
+      validate:
+        - required
+  -
+    handle: video_title
+    field:
+      type: text
+      display: Title
+      instructions: 'Used for the play button label and the iframe title (accessibility).'
+  -
+    handle: poster
+    field:
+      type: assets
+      display: 'Poster image'
+      container: assets
+      max_files: 1
+      instructions: 'Optional. Shown before the video loads. YouTube videos fall back to their own thumbnail.'

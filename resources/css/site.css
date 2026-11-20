@@ -1,0 +1,52 @@
+/* ==========================================================================
+   Makr Starter — site stylesheet
+   --------------------------------------------------------------------------
+   1. makr.css (the framework, in cascade layers, so everything below wins)
+   2. Optional preset
+   3. Site components
+   4. Your theme variables
+
+   Compiled by Vite: `npm run dev` / `npm run build`
+   ========================================================================== */
+
+/* 1. Framework — vendored copy of makr.css (resources/css/makr/) */
+@import "./makr/makr.css";
+
+/* 2. MBM preset (embeemedialab.com look: dark, red, Urbanist).
+      To use it: uncomment, set Globals → Publication → Default theme to "Dark",
+      and add the Urbanist Google Font link to the layout <head>. */
+/* @import "./makr/presets/mbm.css"; */
+
+/* 3. Components */
+@import "./components/base.css";
+@import "./components/header.css";
+@import "./components/footer.css";
+@import "./components/posts.css";
+@import "./components/content.css";
+@import "./components/share.css";
+@import "./components/media.css";
+@import "./components/code.css";
+
+/* 4. Theme — change only what you need (see makr tokens.css for the full list) */
+:root {
+  /* --color-primary: #2b59c3; */
+  /* --color-accent: #e8a33d; */
+
+  /* --font-body: "Inter", system-ui, sans-serif; */
+  /* --font-heading: "Fraunces", Georgia, serif; */
+
+  /* --type-base-max: 1.1875;   19px body text on desktop */
+  /* --type-ratio-max: 1.3;     more dramatic headings   */
+
+  /* --radius: 0.5rem; */
+  /* --btn-radius: var(--radius-full); */
+
+  --content-width: var(--container-narrow);  /* reading column (48rem) — matches .container-narrow */
+  --content-wide: 72rem;        /* "wide" images & featured image  */
+  --content-narrow: 34rem;      /* "narrow" images                 */
+}
+
+[data-theme="dark"] {
+  /* --color-bg: #0f0f11; */
+  /* --color-surface: #18181b; */
+}

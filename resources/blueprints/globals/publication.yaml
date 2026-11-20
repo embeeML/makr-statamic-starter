@@ -1,0 +1,127 @@
+title: Publication
+tabs:
+  main:
+    display: General
+    sections:
+      -
+        fields:
+          -
+            handle: name
+            field:
+              type: text
+              display: 'Site name'
+          -
+            handle: description
+            field:
+              type: textarea
+              display: Description
+              character_limit: 160
+              instructions: 'Default meta description and the intro line on the home page.'
+          -
+            handle: logo
+            field:
+              type: assets
+              display: Logo
+              container: assets
+              max_files: 1
+              instructions: 'SVG recommended. Leave empty to show the site name as text.'
+          -
+            handle: logo_dark
+            field:
+              type: assets
+              display: 'Logo (dark mode)'
+              container: assets
+              max_files: 1
+              instructions: 'Optional. Swapped in when the dark theme is active.'
+  appearance:
+    display: Appearance
+    sections:
+      -
+        fields:
+          -
+            handle: default_theme
+            field:
+              type: button_group
+              display: 'Default theme'
+              default: auto
+              options:
+                auto: 'Auto (follow device)'
+                light: Light
+                dark: Dark
+          -
+            handle: theme_toggle
+            field:
+              type: toggle
+              display: 'Show theme toggle'
+              default: true
+              instructions: 'Lets visitors switch between auto, light and dark. Their choice is remembered.'
+          -
+            handle: icon_set
+            field:
+              type: button_group
+              display: 'Icon set'
+              default: fa
+              options:
+                fa: 'Font Awesome'
+                uil: 'IconScout Unicons'
+              instructions: 'Icons live in resources/svg/icons/{set}/. Drop in any SVG from Font Awesome or IconScout with the same file name to swap it.'
+  blog:
+    display: Blog
+    sections:
+      -
+        fields:
+          -
+            handle: posts_per_page
+            field:
+              type: integer
+              display: 'Posts per page'
+              default: 12
+              width: 33
+          -
+            handle: show_reading_time
+            field:
+              type: toggle
+              display: 'Show reading time'
+              default: true
+              width: 33
+          -
+            handle: show_post_author
+            field:
+              type: toggle
+              display: 'Show post author'
+              default: false
+              width: 33
+          -
+            handle: show_tags_navigation
+            field:
+              type: toggle
+              display: 'Show "Tags" in the navigation'
+              default: true
+              width: 50
+          -
+            handle: show_feed_link
+            field:
+              type: toggle
+              display: 'Show RSS link in the footer'
+              default: true
+              width: 50
+  seo:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            handle: og_image
+            field:
+              type: assets
+              display: 'Default share image'
+              container: assets
+              max_files: 1
+              instructions: '1200×630. Used when a page has no share or featured image.'
+          -
+            handle: title_separator
+            field:
+              type: text
+              display: 'Title separator'
+              default: '|'
+              width: 50

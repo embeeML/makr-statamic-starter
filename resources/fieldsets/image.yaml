@@ -1,0 +1,30 @@
+title: Image
+fields:
+  -
+    handle: image_source
+    field:
+      type: assets
+      display: Image
+      container: assets
+      max_files: 1
+      mode: list
+      required: true
+      validate:
+        - required
+      instructions: 'Set the alt text on the asset itself (Assets → image → Alt Text).'
+  -
+    handle: caption
+    field:
+      type: textarea
+      display: Caption
+      instructions: 'Optional. Basic HTML (links) is allowed.'
+  -
+    handle: width
+    field:
+      type: button_group
+      display: Width
+      default: default
+      options:
+        narrow: Narrow
+        default: Default
+        wide: Wide

@@ -1,0 +1,16 @@
+<div class="container-narrow section">
+    <header class="page-header text-center">
+        <h1>Tags</h1>
+    </header>
+
+    <ul class="tag-cloud">
+        {{ taxonomy:tags sort="title" }}
+            <li>
+                <a href="{{ url }}" class="tag tag-lg">
+                    <span aria-hidden="true">#</span>{{ title }}
+                    <span class="badge">{{ entries_count }}</span>
+                </a>
+            </li>
+        {{ /taxonomy:tags }}
+    </ul>
+</div>

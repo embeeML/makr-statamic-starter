@@ -1,0 +1,74 @@
+<article class="post section">
+    <header class="container-narrow post-header">
+        <p class="post-meta">
+            {{ if publication:show_post_author && author }}
+                <span>By <strong>{{ author:name }}</strong></span>
+                <span aria-hidden="true">&middot;</span>
+            {{ /if }}
+            <time datetime="{{ date format="Y-m-d" }}">{{ date format="F j, Y" }}</time>
+            {{ if publication:show_reading_time }}
+                <span aria-hidden="true">&middot;</span>
+                <span class="post-reading-time">{{ partial:partials/icon name="clock" }} {{ content | bard_text | read_time }} min read</span>
+            {{ /if }}
+        </p>
+
+        <h1 class="post-title">{{ title }}</h1>
+
+        {{ if intro }}
+            <p class="lead post-intro">{{ intro | nl2br }}</p>
+        {{ /if }}
+
+        {{ if tags }}
+            <ul class="post-tags" aria-label="Tags">
+                {{ tags }}
+                    <li><a href="{{ url }}" class="tag">{{ title }}</a></li>
+                {{ /tags }}
+            </ul>
+        {{ /if }}
+    </header>
+
+    {{ if featured_image }}
+        <figure class="post-featured figure-wide">
+            <img
+                src="{{ glide:featured_image width="1600" height="800" fit="crop_focal" format="webp" }}"
+                srcset="{{ glide:featured_image width="800" height="400" fit="crop_focal" format="webp" }} 800w,
+                        {{ glide:featured_image width="1600" height="800" fit="crop_focal" format="webp" }} 1600w,
+                        {{ glide:featured_image width="2400" height="1200" fit="crop_focal" format="webp" }} 2400w"
+                sizes="(min-width: 76rem) 72rem, 100vw"
+                alt="{{ featured_image:alt }}" width="1600" height="800" fetchpriority="high" decoding="async">
+        </figure>
+    {{ /if }}
+
+    <div class="post-content">
+        {{ content }}
+            {{ partial src="sets/{type}" }}
+        {{ /content }}
+    </div>
+
+    <footer class="container-narrow post-footer">
+        {{ partial:partials/share }}
+
+        {{ if publication:show_post_author && author }}
+            {{ partial:partials/author-card }}
+        {{ /if }}
+
+        <nav class="post-nav" aria-label="More posts">
+            {{ collection:previous in="posts" limit="1" sort="date:asc" }}
+                <a href="{{ url }}" class="post-nav-link post-nav-prev" rel="prev">
+                    <span class="small text-muted">{{ partial:partials/icon name="arrow-left" }} Older</span>
+                    <span class="post-nav-title">{{ title }}</span>
+                </a>
+            {{ /collection:previous }}
+            {{ collection:next in="posts" limit="1" sort="date:asc" }}
+                <a href="{{ url }}" class="post-nav-link post-nav-next" rel="next">
+                    <span class="small text-muted">Newer {{ partial:partials/icon name="arrow-right" }}</span>
+                    <span class="post-nav-title">{{ title }}</span>
+                </a>
+            {{ /collection:next }}
+        </nav>
+
+        <p class="text-center mt-8">
+            <a href="{{ link to="/" }}" class="btn btn-outline btn-pill">{{ partial:partials/icon name="arrow-left" }} All posts</a>
+        </p>
+    </footer>
+</article>

@@ -1,0 +1,40 @@
+/* Base additions on top of makr.css */
+
+[x-cloak] { display: none !important; }
+
+html { scroll-padding-top: 6rem; }
+
+body.site {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.site-main { flex: 1 0 auto; }
+
+/* Inline SVG icons (resources/svg/icons/{set}/{name}.svg) */
+.icon {
+  display: inline-block;
+  flex-shrink: 0;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+.icon-sm { width: 0.85em; height: 0.85em; }
+.icon-lg { width: 1.5em; height: 1.5em; }
+.icon-xl { width: 2em; height: 2em; }
+
+/* Compact icon buttons used in the header */
+.site-header .btn-icon { --btn-height: 2.5rem; }
+.site-header .btn-icon .icon { width: 1.15rem; height: 1.15rem; }
+
+.page-header { margin-bottom: var(--space-8); }
+.page-header > :last-child { margin-bottom: 0; }
+
+.home-intro {
+  margin-bottom: var(--space-10);
+  padding-bottom: var(--space-8);
+  border-bottom: var(--border-width) solid var(--color-border);
+}
+.home-intro .lead { margin: 0; font-size: var(--text-xl); }

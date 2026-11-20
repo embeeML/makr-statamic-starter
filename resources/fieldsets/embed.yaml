@@ -1,0 +1,34 @@
+title: 'Social Embed'
+fields:
+  -
+    handle: platform
+    field:
+      type: select
+      display: Platform
+      default: other
+      options:
+        bluesky: Bluesky
+        mastodon: Mastodon
+        threads: Threads
+        instagram: Instagram
+        x: 'X (Twitter)'
+        tiktok: TikTok
+        linkedin: LinkedIn
+        other: Other
+  -
+    handle: embed_code
+    field:
+      type: code
+      mode: htmlmixed
+      display: 'Embed code'
+      instructions: 'Paste the embed snippet from the post''s "Embed" menu. It is output as-is, scripts included, so only paste code from platforms you trust.'
+      required: true
+      validate:
+        - required
+  -
+    handle: fallback_url
+    field:
+      type: text
+      input_type: url
+      display: 'Post URL'
+      instructions: 'Optional link shown under the embed, in case the platform''s script is blocked.'

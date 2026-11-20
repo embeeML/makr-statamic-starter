@@ -1,0 +1,22 @@
+{{# Call this inside a paginate tag pair (see home.antlers.html) #}}
+{{ if total_pages > 1 }}
+    <nav class="pagination" aria-label="Pagination">
+        {{ if prev_page }}
+            <a href="{{ prev_page }}" class="btn btn-outline btn-icon" rel="prev">
+                {{ partial:partials/icon name="arrow-left" }}<span class="visually-hidden">Newer posts</span>
+            </a>
+        {{ else }}
+            <span class="btn btn-outline btn-icon disabled" aria-hidden="true">{{ partial:partials/icon name="arrow-left" }}</span>
+        {{ /if }}
+
+        <span class="pagination-status">Page {{ current_page }} of {{ total_pages }}</span>
+
+        {{ if next_page }}
+            <a href="{{ next_page }}" class="btn btn-outline btn-icon" rel="next">
+                {{ partial:partials/icon name="arrow-right" }}<span class="visually-hidden">Older posts</span>
+            </a>
+        {{ else }}
+            <span class="btn btn-outline btn-icon disabled" aria-hidden="true">{{ partial:partials/icon name="arrow-right" }}</span>
+        {{ /if }}
+    </nav>
+{{ /if }}

@@ -1,0 +1,5 @@
+<button type="button" class="btn btn-ghost btn-icon theme-toggle" x-data="themeToggle" @click="cycle()" :aria-label="label" :title="label" aria-label="Change color theme">
+    <span x-show="mode === 'light'" x-cloak>{{ partial:partials/icon name="sun" }}</span>
+    <span x-show="mode === 'dark'" x-cloak>{{ partial:partials/icon name="moon" }}</span>
+    <span x-show="mode === 'auto'" x-cloak>{{ partial:partials/icon name="theme-auto" }}</span>
+</button>

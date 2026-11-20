@@ -1,0 +1,13 @@
+name: 'Makr Starter'
+description: 'A minimal Statamic blog built on makr.css. Write things, share them everywhere.'
+logo: makr-logo.svg
+logo_dark: makr-logo-dark.svg
+default_theme: auto
+theme_toggle: true
+icon_set: fa
+posts_per_page: 12
+show_reading_time: true
+show_post_author: false
+show_tags_navigation: true
+show_feed_link: true
+title_separator: '|'

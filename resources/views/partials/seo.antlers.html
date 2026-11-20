@@ -1,0 +1,100 @@
+{{#
+    SEO & social meta. Fallback chains:
+      title        seo_title → title → site name
+      description  seo_description → excerpt → intro → site description
+      image        og_image → featured_image → Globals › Publication › Default share image
+#}}
+{{ _sep = publication:title_separator ?? '|' }}
+{{ _title = seo_title ?? title ?? publication:name }}
+{{ _desc = seo_description ?? excerpt ?? intro ?? publication:description }}
+{{ _og = og_image ?? featured_image ?? publication:og_image }}
+{{ _is_post = collection:handle == 'posts' }}
+
+<title>{{ if is_homepage }}{{ publication:name }}{{ else }}{{ _title }} {{ _sep }} {{ publication:name }}{{ /if }}</title>
+<meta name="description" content="{{ _desc | strip_tags | safe_truncate:160:... | sanitize }}">
+<link rel="canonical" href="{{ current_url }}">
+{{ if noindex }}
+    <meta name="robots" content="noindex, follow">
+{{ /if }}
+
+{{# Open Graph — read by Facebook, LinkedIn, Bluesky, Threads, Mastodon, X, Slack, iMessage, Discord #}}
+<meta property="og:site_name" content="{{ publication:name | sanitize }}">
+<meta property="og:locale" content="{{ site:locale }}">
+<meta property="og:url" content="{{ current_url }}">
+<meta property="og:title" content="{{ _title | sanitize }}">
+<meta property="og:description" content="{{ _desc | strip_tags | safe_truncate:200:... | sanitize }}">
+<meta property="og:type" content="{{ _is_post ? 'article' : 'website' }}">
+{{ if _og }}
+    <meta property="og:image" content="{{ glide :src="_og" width="1200" height="630" fit="crop_focal" absolute="true" }}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    {{ if _og:alt }}
+        <meta property="og:image:alt" content="{{ _og:alt | sanitize }}">
+    {{ /if }}
+{{ /if }}
+{{ if _is_post }}
+    <meta property="article:published_time" content="{{ date format="c" }}">
+    <meta property="article:modified_time" content="{{ last_modified format="c" }}">
+    {{ tags }}
+        <meta property="article:tag" content="{{ title | sanitize }}">
+    {{ /tags }}
+{{ /if }}
+
+{{# X / Twitter falls back to the og: tags above; it only needs the card type #}}
+<meta name="twitter:card" content="summary_large_image">
+{{ if social:x_handle }}
+    <meta name="twitter:site" content="@{{ social:x_handle | replace('@', '') }}">
+{{ /if }}
+
+{{# Mastodon: credit the author under link previews #}}
+{{ if social:fediverse_creator }}
+    <meta name="fediverse:creator" content="{{ social:fediverse_creator }}">
+{{ /if }}
+
+{{# rel="me" profile verification (Mastodon, Fediverse, IndieWeb) #}}
+{{ social:profiles }}
+    {{ if enabled && rel_me && url }}
+        <link rel="me" href="{{ url }}">
+    {{ /if }}
+{{ /social:profiles }}
+
+{{# Structured data #}}
+{{ if _is_post }}
+    {{ _author = author:name ?? publication:name }}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": {{ title | to_json }},
+            "description": {{ _desc | strip_tags | to_json }},
+            "url": "{{ permalink }}",
+            "mainEntityOfPage": "{{ permalink }}",
+            "datePublished": "{{ date format="c" }}",
+            "dateModified": "{{ last_modified format="c" }}",
+            {{ if _og }}"image": "{{ glide :src="_og" width="1200" height="630" fit="crop_focal" absolute="true" }}",{{ /if }}
+            "author": { "@type": "Person", "name": {{ _author | to_json }} },
+            "publisher": {
+                "@type": "Organization",
+                "name": {{ publication:name | to_json }}{{ if publication:logo }},
+                "logo": { "@type": "ImageObject", "url": "{{ publication:logo:permalink }}" }{{ /if }}
+            }
+        }
+    </script>
+{{ elseif is_homepage }}
+    {{ _same = 0 }}
+    <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": {{ publication:name | to_json }},
+            "description": {{ publication:description | to_json }},
+            "url": "{{ site:url }}",
+            "publisher": {
+                "@type": "Organization",
+                "name": {{ publication:name | to_json }}{{ if publication:logo }},
+                "logo": "{{ publication:logo:permalink }}"{{ /if }}{{ if social:same_as }},
+                "sameAs": [{{ social:profiles }}{{ if enabled && (url | starts_with:http) }}{{ if _same > 0 }}, {{ /if }}"{{ url }}"{{ _same += 1 }}{{ /if }}{{ /social:profiles }}]{{ /if }}
+            }
+        }
+    </script>
+{{ /if }}

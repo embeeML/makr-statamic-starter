@@ -1,0 +1,138 @@
+title: Social
+tabs:
+  profiles:
+    display: Profiles
+    sections:
+      -
+        display: 'Your profiles'
+        instructions: 'Shown as icons in the footer, in this order.'
+        fields:
+          -
+            handle: profiles
+            field:
+              type: grid
+              display: Profiles
+              mode: stacked
+              add_row: 'Add profile'
+              fields:
+                -
+                  handle: platform
+                  field:
+                    type: select
+                    display: Platform
+                    width: 33
+                    options:
+                      bluesky: Bluesky
+                      threads: Threads
+                      mastodon: Mastodon
+                      x: 'X (Twitter)'
+                      instagram: Instagram
+                      facebook: Facebook
+                      linkedin: LinkedIn
+                      youtube: YouTube
+                      tiktok: TikTok
+                      pinterest: Pinterest
+                      github: GitHub
+                      codepen: CodePen
+                      dribbble: Dribbble
+                      behance: Behance
+                      discord: Discord
+                      twitch: Twitch
+                      reddit: Reddit
+                      medium: Medium
+                      spotify: Spotify
+                      vimeo: Vimeo
+                      telegram: Telegram
+                      whatsapp: WhatsApp
+                      snapchat: Snapchat
+                      mail: Email
+                      rss: RSS
+                      link: 'Other (link)'
+                -
+                  handle: url
+                  field:
+                    type: text
+                    display: URL
+                    width: 66
+                    instructions: 'Full profile URL. For email use mailto:you@example.com'
+                -
+                  handle: label
+                  field:
+                    type: text
+                    display: Label
+                    width: 33
+                    instructions: 'Optional. Screen-reader label; defaults to the platform name.'
+                -
+                  handle: rel_me
+                  field:
+                    type: toggle
+                    display: 'rel="me"'
+                    width: 33
+                    default: false
+                    instructions: 'Turn on for Mastodon / Fediverse profile verification.'
+                -
+                  handle: enabled
+                  field:
+                    type: toggle
+                    display: Show
+                    width: 33
+                    default: true
+  sharing:
+    display: Sharing
+    sections:
+      -
+        fields:
+          -
+            handle: share_networks
+            field:
+              type: checkboxes
+              display: 'Share buttons on posts'
+              inline: true
+              default:
+                - native
+                - bluesky
+                - threads
+                - mastodon
+                - linkedin
+                - copy
+              options:
+                native: 'Device share sheet (phones)'
+                bluesky: Bluesky
+                threads: Threads
+                mastodon: Mastodon
+                x: X
+                facebook: Facebook
+                linkedin: LinkedIn
+                reddit: Reddit
+                whatsapp: WhatsApp
+                email: Email
+                copy: 'Copy link'
+  meta:
+    display: 'Meta & Verification'
+    sections:
+      -
+        fields:
+          -
+            handle: x_handle
+            field:
+              type: text
+              display: 'X handle'
+              prepend: '@'
+              width: 50
+              instructions: 'Adds twitter:site to share cards.'
+          -
+            handle: fediverse_creator
+            field:
+              type: text
+              display: 'Fediverse creator'
+              width: 50
+              placeholder: '@you@mastodon.social'
+              instructions: 'Adds the fediverse:creator tag so Mastodon credits you on link previews.'
+          -
+            handle: same_as
+            field:
+              type: toggle
+              display: 'Add profiles to structured data'
+              default: true
+              width: 50
+              instructions: 'Lists your profiles as schema.org sameAs links so search engines connect them to your site.'

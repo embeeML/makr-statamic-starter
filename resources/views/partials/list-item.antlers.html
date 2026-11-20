@@ -1,0 +1,29 @@
+<article class="post-item">
+    <p class="post-meta">
+        <time datetime="{{ date format="Y-m-d" }}">{{ date format="M j, Y" }}</time>
+        {{ if publication:show_reading_time }}
+            <span aria-hidden="true">&middot;</span>
+            <span>{{ content | bard_text | read_time }} min read</span>
+        {{ /if }}
+    </p>
+
+    <h2 class="post-item-title">
+        <a href="{{ url }}">{{ title }}</a>
+    </h2>
+
+    <p class="post-item-excerpt">
+        {{ if excerpt }}
+            {{ excerpt | strip_tags | safe_truncate:280:... }}
+        {{ else }}
+            {{ content | bard_text | safe_truncate:280:... }}
+        {{ /if }}
+    </p>
+
+    {{ if tags }}
+        <ul class="post-tags" aria-label="Tags">
+            {{ tags }}
+                <li><a href="{{ url }}" class="tag">{{ title }}</a></li>
+            {{ /tags }}
+        </ul>
+    {{ /if }}
+</article>

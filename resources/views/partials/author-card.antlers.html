@@ -1,0 +1,14 @@
+{{ author }}
+    <aside class="author-card card card-flat" aria-label="About the author">
+        <div class="card-body">
+            {{ if avatar }}
+                <img class="author-avatar" src="{{ glide:avatar width="128" height="128" fit="crop_focal" format="webp" }}" alt="" width="64" height="64" loading="lazy">
+            {{ /if }}
+            <div>
+                <p class="author-name">{{ name }}</p>
+                {{ if bio }}<p class="small text-muted">{{ bio }}</p>{{ /if }}
+                {{ if website }}<a class="small" href="{{ website }}" rel="author">{{ website | replace('https://', '') }}</a>{{ /if }}
+            </div>
+        </div>
+    </aside>
+{{ /author }}

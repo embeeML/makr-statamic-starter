@@ -1,0 +1,9 @@
+{{# Social embed set — outputs the platform's own embed snippet #}}
+<figure class="figure figure-default social-embed social-embed-{{ platform:value ?? 'other' }}">
+    {{ embed_code }}
+    {{ if fallback_url }}
+        <figcaption>
+            <a href="{{ fallback_url }}" target="_blank" rel="noopener">View the original post{{ if platform:value && platform:value != 'other' }} on {{ platform:label }}{{ /if }}</a>
+        </figcaption>
+    {{ /if }}
+</figure>

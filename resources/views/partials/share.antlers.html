@@ -1,0 +1,94 @@
+{{#
+    Share buttons — choose networks in Globals → Social → Sharing.
+    Links use each platform's official "intent" URL. Mastodon asks for the
+    visitor's server once and remembers it. "native" uses the Web Share API
+    and only shows on devices that support it.
+#}}
+{{ if social:share_networks }}
+<section class="share" x-data="share" data-url="{{ permalink }}" data-title="{{ title | sanitize }}" aria-labelledby="share-heading">
+    <h2 id="share-heading" class="eyebrow share-heading">Share this post</h2>
+
+    <ul class="share-list">
+        {{ social:share_networks }}
+            {{ if value == 'native' }}
+                <li x-show="canNativeShare" x-cloak>
+                    <button type="button" class="share-btn" @click="nativeShare()">
+                        {{ partial:partials/icon name="share" }}<span>Share</span>
+                    </button>
+                </li>
+            {{ elseif value == 'bluesky' }}
+                <li>
+                    <a class="share-btn" href="https://bsky.app/intent/compose?text={{ title | rawurlencode }}%20{{ permalink | rawurlencode }}" target="_blank" rel="noopener">
+                        {{ partial:partials/icon name="bluesky" }}<span>Bluesky</span>
+                    </a>
+                </li>
+            {{ elseif value == 'threads' }}
+                <li>
+                    <a class="share-btn" href="https://www.threads.com/intent/post?text={{ title | rawurlencode }}&amp;url={{ permalink | rawurlencode }}" target="_blank" rel="noopener">
+                        {{ partial:partials/icon name="threads" }}<span>Threads</span>
+                    </a>
+                </li>
+            {{ elseif value == 'mastodon' }}
+                <li class="share-mastodon">
+                    <button type="button" class="share-btn" @click="toggleMastodon()" :aria-expanded="mastodonOpen.toString()" aria-controls="share-mastodon-form">
+                        {{ partial:partials/icon name="mastodon" }}<span>Mastodon</span>
+                    </button>
+                    <form id="share-mastodon-form" class="share-mastodon-form card" x-show="mastodonOpen" x-cloak x-transition @submit.prevent="shareToMastodon()" @click.outside="mastodonOpen = false">
+                        <label for="share-mastodon-instance" class="small">Your Mastodon server</label>
+                        <div class="input-group">
+                            <input id="share-mastodon-instance" class="form-control" type="text" inputmode="url" autocomplete="off" placeholder="mastodon.social" x-model="instance" x-ref="instance" required>
+                            <button type="submit" class="btn btn-primary">Share</button>
+                        </div>
+                    </form>
+                </li>
+            {{ elseif value == 'x' }}
+                <li>
+                    <a class="share-btn" href="https://x.com/intent/post?text={{ title | rawurlencode }}&amp;url={{ permalink | rawurlencode }}{{ if social:x_handle }}&amp;via={{ social:x_handle | replace('@', '') }}{{ /if }}" target="_blank" rel="noopener">
+                        {{ partial:partials/icon name="x" }}<span>X</span>
+                    </a>
+                </li>
+            {{ elseif value == 'facebook' }}
+                <li>
+                    <a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u={{ permalink | rawurlencode }}" target="_blank" rel="noopener">
+                        {{ partial:partials/icon name="facebook" }}<span>Facebook</span>
+                    </a>
+                </li>
+            {{ elseif value == 'linkedin' }}
+                <li>
+                    <a class="share-btn" href="https://www.linkedin.com/sharing/share-offsite/?url={{ permalink | rawurlencode }}" target="_blank" rel="noopener">
+                        {{ partial:partials/icon name="linkedin" }}<span>LinkedIn</span>
+                    </a>
+                </li>
+            {{ elseif value == 'reddit' }}
+                <li>
+                    <a class="share-btn" href="https://www.reddit.com/submit?url={{ permalink | rawurlencode }}&amp;title={{ title | rawurlencode }}" target="_blank" rel="noopener">
+                        {{ partial:partials/icon name="reddit" }}<span>Reddit</span>
+                    </a>
+                </li>
+            {{ elseif value == 'whatsapp' }}
+                <li>
+                    <a class="share-btn" href="https://wa.me/?text={{ title | rawurlencode }}%20{{ permalink | rawurlencode }}" target="_blank" rel="noopener">
+                        {{ partial:partials/icon name="whatsapp" }}<span>WhatsApp</span>
+                    </a>
+                </li>
+            {{ elseif value == 'email' }}
+                <li>
+                    <a class="share-btn" href="mailto:?subject={{ title | rawurlencode }}&amp;body={{ permalink | rawurlencode }}">
+                        {{ partial:partials/icon name="mail" }}<span>Email</span>
+                    </a>
+                </li>
+            {{ elseif value == 'copy' }}
+                <li>
+                    <button type="button" class="share-btn" @click="copy()">
+                        <span x-show="! copied">{{ partial:partials/icon name="link" }}</span>
+                        <span x-show="copied" x-cloak>{{ partial:partials/icon name="check" }}</span>
+                        <span x-text="copied ? 'Copied!' : 'Copy link'">Copy link</span>
+                    </button>
+                </li>
+            {{ /if }}
+        {{ /social:share_networks }}
+    </ul>
+
+    <p class="visually-hidden" role="status" aria-live="polite" x-text="status"></p>
+</section>
+{{ /if }}

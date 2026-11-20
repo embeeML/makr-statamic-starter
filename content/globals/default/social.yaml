@@ -1,0 +1,41 @@
+profiles:
+  -
+    id: p1bsky01
+    platform: bluesky
+    url: 'https://bsky.app/profile/example.com'
+    rel_me: false
+    enabled: true
+  -
+    id: p2mast01
+    platform: mastodon
+    url: 'https://mastodon.social/@example'
+    rel_me: true
+    enabled: true
+  -
+    id: p3thrd01
+    platform: threads
+    url: 'https://www.threads.com/@example'
+    rel_me: false
+    enabled: true
+  -
+    id: p4ghub01
+    platform: github
+    url: 'https://github.com/example'
+    rel_me: false
+    enabled: true
+  -
+    id: p5mail01
+    platform: mail
+    url: 'mailto:hello@example.com'
+    rel_me: false
+    enabled: true
+share_networks:
+  - native
+  - bluesky
+  - threads
+  - mastodon
+  - linkedin
+  - copy
+x_handle: null
+fediverse_creator: '@example@mastodon.social'
+same_as: true

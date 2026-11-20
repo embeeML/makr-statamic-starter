@@ -1,0 +1,13 @@
+<div class="container-narrow section">
+    <header class="page-header text-center">
+        <span class="eyebrow">Tag</span>
+        <h1><span class="text-muted" aria-hidden="true">#</span>{{ title }}</h1>
+        {{ if content }}<div class="lead">{{ content }}</div>{{ /if }}
+    </header>
+
+    <div class="post-list">
+        {{ entries sort="date:desc" }}
+            {{ partial:partials/list-item }}
+        {{ /entries }}
+    </div>
+</div>

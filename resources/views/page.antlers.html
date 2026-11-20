@@ -1,0 +1,11 @@
+<article class="section">
+    <header class="container-narrow page-header">
+        <h1>{{ title }}</h1>
+    </header>
+
+    <div class="post-content">
+        {{ content }}
+            {{ partial src="sets/{type}" }}
+        {{ /content }}
+    </div>
+</article>

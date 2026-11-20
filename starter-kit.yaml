@@ -1,0 +1,17 @@
+# Makr Starter — Statamic 6 starter kit
+# Everything listed here is copied into a new site on install.
+export_paths:
+  - content
+  - resources/blueprints
+  - resources/fieldsets
+  - resources/css
+  - resources/js
+  - resources/svg
+  - resources/views
+  - routes/web.php
+  - public/assets
+  - public/build
+  - package.json
+  - package-lock.json
+  - vite.config.js
+  - README.md

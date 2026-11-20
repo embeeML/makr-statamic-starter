@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="{{ site:short_locale }}" data-theme="{{ publication:default_theme ?? 'auto' }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        {{ if publication:theme_toggle }}
+            {{# Apply the visitor's saved theme before first paint (no flash) #}}
+            <script>
+                (function () { try { var t = localStorage.getItem('makr-theme'); if (t) { document.documentElement.dataset.theme = t; } } catch (e) { /* storage blocked */ } })();
+            </script>
+        {{ /if }}
+
+        {{ partial:partials/seo }}
+
+        <link rel="alternate" type="application/atom+xml" title="{{ publication:name }}" href="{{ link to="feed" absolute="true" }}">
+        {{ vite src="resources/css/site.css|resources/js/site.js" }}
+        {{ yield:head }}
+    </head>
+    <body class="site template-{{ current_template | slugify }}">
+        <a class="skip-link" href="#main">Skip to content</a>
+
+        {{ partial:partials/header }}
+
+        <main id="main" class="site-main">
+            {{ template_content }}
+        </main>
+
+        {{ partial:partials/footer }}
+    </body>
+</html>

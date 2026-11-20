@@ -1,0 +1,120 @@
+title: Post
+tabs:
+  main:
+    display: Main
+    sections:
+      -
+        fields:
+          -
+            handle: title
+            field:
+              type: text
+              required: true
+              validate:
+                - required
+          -
+            handle: intro
+            field:
+              type: textarea
+              display: Intro
+              instructions: 'Shown under the headline, a little larger than the body text.'
+          -
+            handle: content
+            field:
+              type: bard
+              display: Content
+              container: assets
+              toolbar_mode: fixed
+              fullscreen: true
+              allow_source: true
+              reading_time: true
+              remove_empty_nodes: trim
+              buttons:
+                - h2
+                - h3
+                - h4
+                - bold
+                - italic
+                - unorderedlist
+                - orderedlist
+                - quote
+                - anchor
+                - image
+                - code
+                - codeblock
+                - table
+                - horizontalrule
+                - removeformat
+              sets:
+                media:
+                  display: Media
+                  sets:
+                    image:
+                      display: Image
+                      fields:
+                        -
+                          import: image
+                    video:
+                      display: Video
+                      fields:
+                        -
+                          import: video
+                    embed:
+                      display: 'Social Embed'
+                      fields:
+                        -
+                          import: embed
+  seo:
+    display: SEO
+    sections:
+      -
+        fields:
+          -
+            import: seo
+  sidebar:
+    display: Sidebar
+    sections:
+      -
+        fields:
+          -
+            handle: slug
+            field:
+              type: slug
+              localizable: true
+          -
+            handle: date
+            field:
+              type: date
+              required: true
+              validate:
+                - required
+          -
+            handle: author
+            field:
+              type: users
+              display: Author
+              max_items: 1
+              mode: select
+          -
+            handle: featured_image
+            field:
+              type: assets
+              display: 'Featured image'
+              container: assets
+              max_files: 1
+              instructions: 'Optional. Shown at the top of the post and used as the share image if none is set.'
+          -
+            handle: excerpt
+            field:
+              type: textarea
+              display: Excerpt
+              instructions: 'Used in post lists and as the meta description. If empty, the first 280 characters of the content are used.'
+          -
+            handle: tags
+            field:
+              type: terms
+              taxonomies:
+                - tags
+              display: Tags
+              mode: select
+              create: true

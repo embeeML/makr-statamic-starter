@@ -1,0 +1,12 @@
+{{#
+    Icon partial — inlines an SVG from resources/svg/icons/{set}/{name}.svg
+
+    partial:partials/icon name="bluesky"
+    partial:partials/icon name="arrow-right" class="icon-lg"
+    partial:partials/icon name="github" set="uil"     (force a set)
+
+    The set defaults to Globals → Publication → Appearance → Icon set.
+#}}
+{{ _icon_set = set ?? publication:icon_set ?? 'fa' }}
+{{ _icon_class = class ?? '' }}
+{{ svg src="icons/{_icon_set}/{name}" class="icon {_icon_class}" aria-hidden="true" focusable="false" }}

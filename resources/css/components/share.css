@@ -1,0 +1,57 @@
+/* Share buttons */
+
+.share {
+  padding-top: var(--space-7);
+  border-top: var(--border-width) solid var(--color-border);
+}
+.share-heading { margin-bottom: var(--space-4); }
+
+.share-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.share-list li + li { margin-top: 0; }
+
+.share-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  min-height: 2.5rem;
+  padding: 0.45em 1em;
+  background: transparent;
+  color: var(--color-text);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  font: inherit;
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: 1.2;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--duration-fast) var(--ease), border-color var(--duration-fast) var(--ease), background-color var(--duration-fast) var(--ease);
+}
+.share-btn:hover {
+  color: var(--color-primary);
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+/* Mastodon server picker */
+.share-mastodon { position: relative; }
+.share-mastodon-form {
+  position: absolute;
+  bottom: calc(100% + var(--space-2));
+  left: 0;
+  z-index: var(--z-dropdown);
+  width: min(21rem, calc(100vw - 2rem));
+  height: auto;
+  padding: var(--space-4);
+  box-shadow: var(--shadow-lg);
+}
+.share-mastodon-form label { display: block; margin-bottom: var(--space-2); }
+.share-mastodon-form .input-group { display: flex; }
+.share-mastodon-form .form-control { min-width: 0; }
